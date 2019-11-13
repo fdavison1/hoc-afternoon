@@ -47,14 +47,20 @@ const withCurrency = (BaseComponent) => (
             return (
                 <div>
 
-                    <select value={this.state.selectedCurrency}>
+                    <select 
+                    onChange={this.handleOptionSelect}
+                    value={this.state.selectedCurrency}>
                         <option value="Select Currency">Select Currency</option>
                         {currencyOptions}
                     </select>
 
                     <div>
-                        <button>+</button>
-                        <button>-</button>
+                        <button
+                        onClick={()=> this.handleAmountIncrease()}
+                        className="add">+</button>
+                        <button
+                        onClick={()=> this.handleAmountDecrease()}
+                        className='minus'>-</button>
                     </div>
 
                     {this.state.currencyChosen ? (
